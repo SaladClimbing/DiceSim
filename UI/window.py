@@ -1,5 +1,8 @@
 # Pygame import
 import pygame
+from logging import info, basicConfig, DEBUG
+basicConfig(level=DEBUG,
+            format='%(name)s - %(levelname)s : %(message)s')
 
 # Window settings
 background_color = (244, 244, 244)
@@ -11,12 +14,7 @@ pygame.display.flip()
 
 
 def __init__():
-    # REVIEW Can be written neater
-    from sys import path
-    path.append('../DiceSim')
-    from debug import info
     info(f"Pygame Version: {pygame.version.ver}")
-    del path
 
     running = True
 
