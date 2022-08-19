@@ -1,22 +1,26 @@
 # Pygame imports
 from pygame import draw as render
 from pygame import display, Rect
-from UI.window import get_screen, get_screen_dims
-import pickle
+# Personal imports
+from UI.buttons.buttonmanager import add_button
 
-color = (0, 0, 0)
-screensize = get_screen_dims()
-size = 50
+import pickle
 
 # TODO Make only in dev
 with open('config', 'wb') as file:
-    pickle.dump(size, file)
+    pickle.dump(50, file)
 
 
-def draw():
-    rectstartx = (screensize[0]/2) - (size/2)
-    rectstarty = (screensize[1]/2) - (size/2)
+class Dice:
 
-    render.rect(get_screen(), color, Rect(
-        rectstartx, rectstarty, size, size), 2, 3)
-    display.flip()
+    def __init__(self, screensize):
+        self.color = (0, 0, 0)
+        self.size = 50
+        self.rectstartx = (screensize[0]/2) - (self.size/2)
+        self.rectstarty = (screensize[1]/2) - (self.size/2)
+        add_button("dice", (self.rectstartx, self.rectstarty), self.size)
+
+    def draw(self, screen):
+        render.rect(screen, self.color, Rect(
+            self.rectstartx, self.rectstarty, self.size, self.size), 2, 3)
+        display.flip()
