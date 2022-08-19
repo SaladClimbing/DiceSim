@@ -1,33 +1,37 @@
 # Pygame import
+from audioop import add
 import pygame
+# Personal imports
+from UI.dice import Dice
+from UI.buttons.buttonmanager import click
+# Debug imports
 from logging import info, basicConfig, DEBUG
 basicConfig(level=DEBUG,
             format='%(name)s - %(levelname)s : %(message)s')
 
-# Window settings
+info(f"Pygame Version: {pygame.version.ver}")
+
+# region Window settings
 background_color = (244, 244, 244)
 screensize = (500, 500)
 screen = pygame.display.set_mode(screensize)
 pygame.display.set_caption('Dice Sim')
 screen.fill(background_color)
 pygame.display.flip()
+# endregion
+
+die = Dice(screensize)
 
 
-def __init__():
-    info(f"Pygame Version: {pygame.version.ver}")
-
-    running = True
-
-    while running:
-        from UI.dice import draw
-        draw()
+def update():
+    die.draw(screen)  # Draws the die
+    if pygame.mouse.get_pressed()[0] == True:
         mousepos = pygame.mouse.get_pos()
-        if ((screensize[0]/2) + 50 > mousepos[0] > (screensize[0]/2) - 50):
-            # pygame.draw.rect(screen, (0, 0, 255), (150, 450, 100, 50))
-            info("Moused over")
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
+        click(mousepos)
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            return False
+    return True
 
 
 def get_screen(): return screen
