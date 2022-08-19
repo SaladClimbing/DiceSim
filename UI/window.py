@@ -1,5 +1,4 @@
 # Pygame import
-from audioop import add
 import pygame
 # Personal imports
 from UI.dice import Dice
@@ -8,8 +7,6 @@ from UI.buttons.buttonmanager import click
 from logging import info, basicConfig, DEBUG
 basicConfig(level=DEBUG,
             format='%(name)s - %(levelname)s : %(message)s')
-
-info(f"Pygame Version: {pygame.version.ver}")
 
 # region Window settings
 background_color = (244, 244, 244)
