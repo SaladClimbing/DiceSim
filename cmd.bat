@@ -1,1 +1,1 @@
-@cmd
+start
