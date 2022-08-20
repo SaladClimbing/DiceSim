@@ -4,9 +4,9 @@ import pygame
 from UI.dice import Dice
 from UI.buttons.buttonmanager import click
 # Debug imports
-from logging import info, basicConfig, DEBUG
-basicConfig(level=DEBUG,
-            format='%(name)s - %(levelname)s : %(message)s')
+#from logging import info, basicConfig, DEBUG
+# basicConfig(level=DEBUG,
+#            format='%(name)s - %(levelname)s : %(message)s')
 
 # region Window settings
 background_color = (244, 244, 244)

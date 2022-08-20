@@ -1,5 +1,4 @@
 from UI.buttons.button import Button
-from pygame import event, MOUSEBUTTONDOWN, mouse
 buttons = []
 
 
