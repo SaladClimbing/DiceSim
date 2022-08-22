@@ -3,11 +3,9 @@ from pygame import version
 # Personal imports
 from UI.window import update
 # Degbug imports
-from logging import info, basicConfig, DEBUG
-basicConfig(level=DEBUG,
-            format='%(name)s - %(levelname)s : %(message)s')
-
-info(f"Pygame Version: {version.ver}")
+# from logging import info, basicConfig, DEBUG
+# basicConfig(level=DEBUG,
+#             format='%(name)s - %(levelname)s : %(message)s')
 
 # Game loop
 while True:
