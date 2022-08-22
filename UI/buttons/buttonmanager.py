@@ -12,4 +12,4 @@ def click(mpos):
         return
     for button in buttons:
         if button.is_colliding(mpos):
-            print("Clicked : ", button.name)
+            print("Clicked :", button.name)

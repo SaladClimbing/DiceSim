@@ -22,6 +22,7 @@ die = Dice(screensize)
 
 def update():
     die.draw(screen)  # Draws the die
+    die.roll()
     if pygame.mouse.get_pressed()[0] == True:
         mousepos = pygame.mouse.get_pos()
         click(mousepos)
