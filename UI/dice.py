@@ -3,12 +3,7 @@ from pygame import draw as render
 from pygame import display, Rect, font, init
 # Personal imports
 from UI.buttons.buttonmanager import add_button
-
-import pickle
-
-# TODO Make only in dev
-with open('config', 'wb') as file:
-    pickle.dump(50, file)
+from random import randint
 
 init()
 
@@ -27,7 +22,8 @@ class Dice:
         self.textRect
         self.textRect.center = (
             self.rectstartx + self.size // 2, self.rectstarty + self.size // 2)
-        add_button("dice", (self.rectstartx, self.rectstarty), self.size)
+        add_button("dice", (self.rectstartx, self.rectstarty),
+                   self.size, self.roll)
 
     def draw(self, screen):
         render.rect(screen, self.color, Rect(
@@ -39,5 +35,5 @@ class Dice:
         return self.font.render(str, True, (0, 0, 0), (255, 255, 255))
 
     def roll(self):
-        self.text = self.__rendertext('2')
+        self.text = self.__rendertext(str(randint(1, 6)))
         return
