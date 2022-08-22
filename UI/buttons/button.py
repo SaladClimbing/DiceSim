@@ -1,8 +1,9 @@
 # ANCHOR Class containing everything needed for simple click detection
 class Button:
-    def __init__(self, name, tlc, size):
+    def __init__(self, name, tlc, size, onclick):
         self.name = name
         self.tlc = tlc
+        self.onclick = onclick
         self.trc = (self.tlc[0] + size, self.tlc[1])
         self.blc = (self.tlc[0], self.tlc[1] + size)
         self.brc = (self.tlc[0] + size, self.tlc[1] + size)
